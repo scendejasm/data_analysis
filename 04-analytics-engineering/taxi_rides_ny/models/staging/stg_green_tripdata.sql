@@ -12,7 +12,7 @@ with tripdata as
   where vendorid is not null 
 )
 select
-    -- identifiers
+    -- identifiers(b)
     {{ dbt_utils.generate_surrogate_key(['vendorid', 'lpep_pickup_datetime']) }} as tripid,
     {{ dbt.safe_cast("vendorid", api.Column.translate_type("integer")) }} as vendorid,
     {{ dbt.safe_cast("ratecodeid", api.Column.translate_type("integer")) }} as ratecodeid,
